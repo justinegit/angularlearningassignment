@@ -1,0 +1,7 @@
+<div class="child">
+    <h2>CHILD COMPONENT</h2>
+    <p>Our Service:<strong>{{service}}</strong></p>
+    <label for="service-input">Add a service:</label>
+    <input type="text" id="service-input" #newService>
+    <button (click) = "addNewService(newService.value)">Add</button> 
+</div>

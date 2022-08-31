@@ -1,0 +1,63 @@
+<nav class="navbar navbar-light bg-light">
+  
+<div class = "main-div">
+  
+  <div>
+     <h1> ANGULAR {{title}}</h1>
+  </div>
+    <ul  class="ul-div">
+      <li [routerLink]="['/home']">HOME</li>
+      <li [routerLink]="['/about-us']">ABOUT-US</li>
+      <li [routerLink]="['/contact-us']">CONTACT-US</li>
+    </ul>
+</div>
+    
+<div class = "body-div">
+  <h1>MY TASKS</h1> 
+  <h1>NEW PROJECT-SETUP</h1> 
+  <h1>ANGULAR ROUTING</h1>
+  <h1>ANGULAR REACTIVE FORMS</h1>
+  <h1>INPUT AND OUTPUT DECORATORS</h1>
+  <h1>DIRECTIVES & PIPES</h1>   
+</div>
+
+<div class="parent">
+  <h2>PARENT COMPONENT</h2>
+  <ul>
+    <li *ngFor="let ser of services">{{ser}}</li>
+  </ul>
+  <app-decorators [service]="currentservice" (newServiceEvent)="addService($event)"></app-decorators>
+</div>
+
+
+<div class="form-div">
+  <h3 style="text-align:center;">Angular Forms</h3>
+    <form #form="ngForm" (ngsubmit)="form.valid&&onsubmit()">
+     <label>First Name</label>
+     <input type = "text" class="form-control" name = "firstName" required #firstName="ngModel" [(ngModel)]="data.firstname">
+     <label class="text-danger" *ngIf="form.submitted&&firstName.errors?.required"> First Name is required</label>
+ <div>
+     <label>Last Name</label>
+     <input type = "text" class="form-control" name = "lastName" required #lastName="ngModel" [(ngModel)]="data.lastname">
+     <label class="text-danger" *ngIf="form.submitted&&lastName.errors?.required"> Last Name is required</label>
+ </div>
+     
+ <div>
+     <label>Phone</label>
+     <input type = "number" class="form-control" name = "phone" required #phone="ngModel" [(ngModel)]="data.phone" pattern="^((\\+91-?)|0)?[0-9]{10}$">
+     <label class="text-danger" *ngIf="form.submitted&&phone.errors?.required"> Phone number is required</label>
+     <label class="text-danger" *ngIf="form.submitted&&phone.errors?.pattern"> Invalid Phone number</label>
+ </div>
+ 
+ <div>
+ 
+     <label>Email</label>
+     <input type = "email" class="form-control" name = "email" required #email="ngModel" [(ngModel)]="data.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+     <label class="text-danger" *ngIf="form.submitted&&email.errors?.required"> Email is required</label>
+     <label class="text-danger" *ngIf="form.submitted&&email.errors?.pattern"> Invalid Email</label>
+ </div>    
+ </form>
+
+
+    <router-outlet></router-outlet>
+</nav>

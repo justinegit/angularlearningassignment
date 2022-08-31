@@ -1,0 +1,27 @@
+.main-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(14, 226, 67, 0.836);
+    
+    
+
+}
+
+.body-div{
+    background-color: rgba(14, 226, 67, 0.836);
+}
+
+.ul-div{
+    display: flex;
+    list-style: none;
+
+}
+
+.ul-div>li{
+    padding: 5px;
+}
+
+.parent{
+    background-color: rgba(14, 226, 67, 0.836);
+}
